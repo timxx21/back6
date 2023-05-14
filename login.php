@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 else {
 
     $user = 'u52808';
-    $pass = '9337244  ';
+    $pass = '9337244';
     $db = new PDO('mysql:host=localhost;dbname=u52808', $user, $pass, [PDO::ATTR_PERSISTENT => true]);
     $stmt = $db->prepare("SELECT * FROM Person WHERE p_login = :p_login && p_pass = :p_pass;");
     $stmtErr = $stmt->execute(['p_login' => $_POST['login'], 'p_pass' => hash("adler32",$_POST['pass'])]);
