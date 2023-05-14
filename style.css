@@ -1,0 +1,18 @@
+html {
+	background: linear-gradient(to bottom, #96cf06, #72d402); 
+    min-height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+body {
+	color:#ffffff;
+	margin: 30px auto 0;
+    width: fit-content;
+}
+.error {
+    background-color: red;
+	box-shadow: 0 0 7px 1px red;
+}
+.error-message {
+	color: red;
+}
