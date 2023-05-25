@@ -290,4 +290,4 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
             }
         }
     }
-    header('Location: admin
+    header("Location: admin.php"); 
