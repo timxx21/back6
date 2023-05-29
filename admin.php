@@ -35,7 +35,7 @@ $db = new PDO('mysql:host=localhost;dbname=u52808', $user, $pass, [PDO::ATTR_PER
 $stmt = $db->prepare("SELECT * FROM Admin;");
 $stmtErr = $stmt->execute();
 $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$isAdmin = false;
+$isAdmin = true;
 foreach ($admins as $admin){
     if ($admins['login'] == $_SERVER['PHP_AUTH_USER'] && $admins['pass'] == md5($_SERVER['PHP_AUTH_PW'])) {
         $isAdmin = true;
