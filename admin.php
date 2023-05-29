@@ -37,7 +37,7 @@ $stmtErr = $stmt->execute();
 $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $isAdmin = false;
 foreach ($admins as $admin){
-    if ($admin['login'] == $_SERVER['PHP_AUTH_USER'] && $admin['pass'] == md5($_SERVER['PHP_AUTH_PW'])) {
+    if ($admin['login'] == $_SERVER['PHP_AUTH_USER'] && md5($admin['pass']) == md5($_SERVER['PHP_AUTH_PW'])) {
         $isAdmin = true;
         break;
     }
