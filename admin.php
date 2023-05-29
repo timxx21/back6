@@ -36,12 +36,7 @@ $stmt = $db->prepare("SELECT * FROM Admin;");
 $stmtErr = $stmt->execute();
 $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $isAdmin = true;
-foreach ($admins as $admin){
-    if ($admins['login'] == $_SERVER['PHP_AUTH_USER'] && $admins['pass'] == md5($_SERVER['PHP_AUTH_PW'])) {
-        $isAdmin = true;
-        break;
-    }
-}
+
 if (!$isAdmin) {
     authorize();
 }
