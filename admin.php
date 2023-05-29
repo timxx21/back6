@@ -62,11 +62,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
         foreach ($abilities as $ability) {
             $person[$ability['a_name']] = 0;
         }
-        /*
-        $person['Invincibility']=0;
-        $person['Noclip']=0;
-        $person['Levitation']=0;
-        */
+        
         foreach ($personAbilities as $personAbility) {
             foreach ($abilities as $ability) {
                 if ($ability['a_id'] == $personAbility['a_id']) {
@@ -74,19 +70,7 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
                     break;
                 }
             }
-            /*
-            switch ($personAbility['a_id']) {
-                case 1:
-                    $person['Invincibility']=1;
-                    break;
-                case 3:
-                    $person['Noclip']=1;
-                    break;
-                case 2:
-                    $person['Levitation']=1;
-                    break;
-            }
-            */
+            
         }
         setcookie('changed_uid', $person['p_id'], time() + 30 * 24 * 60 * 60);
         ?>
@@ -268,26 +252,11 @@ if ($_SERVER['REQUEST_METHOD']=="GET") {
                     break;
                 }
             }
-            /*
-            switch ($item) {
-                case "Invincibility":
-                    $stmt = $db->prepare("INSERT INTO Person_Ability (p_id, a_id) VALUES (:p_id, :a_id);");
-                    $stmtErr = $stmt->execute(['p_id' => $_POST['uid'], 'a_id' => 1]);
-                    break;
-                case "Noclip":
-                    $stmt = $db->prepare("INSERT INTO Person_Ability (p_id, a_id) VALUES (:p_id, :a_id);");
-                    $stmtErr = $stmt->execute(['p_id' => $_POST['uid'], 'a_id' => 3]);
-                    break;
-                case "Levitation":
-                    $stmt = $db->prepare("INSERT INTO Person_Ability (p_id, a_id) VALUES (:p_id, :a_id);");
-                    $stmtErr = $stmt->execute(['p_id' => $_POST['uid'], 'a_id' => 2]);
-                    break;
-            }
-            */
+            
             if (!$stmtErr) {
                 header("HTTP/1.1 500 Some server issue");
                 exit();
             }
         }
     }
-header("Location: admin.php"); 
+    header('Location: admin.php);
