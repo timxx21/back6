@@ -21,7 +21,9 @@ function authorize() {
 // PHP хранит логин и пароль в суперглобальном массиве $_SERVER.
 // Подробнее см. стр. 26 и 99 в учебном пособии Веб-программирование и веб-сервисы.
 if (empty($_SERVER['PHP_AUTH_USER']) ||
-    empty($_SERVER['PHP_AUTH_PW'])) {
+    empty($_SERVER['PHP_AUTH_PW']))||
+$_SERVER['PHP_AUTH_USER'] != 'admin' ||
+    md5($_SERVER['PHP_AUTH_PW']) != md5('123')){
   authorize();
 }
 $user = 'u52808';
